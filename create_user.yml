@@ -1,0 +1,12 @@
+---
+- name: Create 'test9' User on EC2 Instances
+  hosts: ec2
+  remote_user: ec2-user
+  become: yes  # Run tasks with sudo privileges
+
+  tasks:
+    - name: Create 'test9' user
+      user:
+        name: test9
+        createhome: yes
+      tags: users
