@@ -1,0 +1,16 @@
+---
+- name: Create .ssh directory for user
+  hosts: ec2  
+  remote_user: ec2-user 
+  become: yes
+
+  tasks:
+    - name: Create 'test9' .ssh directory
+      #become: yes  
+      #become_user: test9  
+      file:
+        path: /home/test9/.ssh  
+        state: directory 
+        mode: '0700' 
+        owner: test9
+        group: test9
